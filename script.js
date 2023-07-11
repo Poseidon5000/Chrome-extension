@@ -16,7 +16,7 @@ let listItem = " ";
 
 for (let i = 0; i < leadsArr.length; i++) {
     listItem  +=   `<li>
-    <a target='_blank' href='${leadsArr[i]}'>
+    <a target='_blank' href='https://${leadsArr[i]}'>
         ${leadsArr[i]}
     </a>
 </li>`
