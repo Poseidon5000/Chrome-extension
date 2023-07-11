@@ -1,18 +1,33 @@
 const btn = document.querySelector('button');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
+const deleteBtn = document.querySelector('.delete-btn');
 
 const leadsArr = [];
+
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem('Lead-Array'));
+console.log(leadsFromLocalStorage);
+
+if (leadsFromLocalStorage) {
+    leadsArr = leadsFromLocalStorage;
+    // console.log(leadsArr);
+    renderLeads();
+}
 
 btn.addEventListener('click', () => {
    leadsArr.push(input.value);
     input.value = '';
     console.log(leadsArr);
 
+    localStorage.setItem('Lead-Array', JSON.stringify(leadsArr));
+    renderLeads();
+
 
 //Displaying the url
+});
 
-let listItem = " ";
+function renderLeads(){
+    let listItem = " ";
 
 for (let i = 0; i < leadsArr.length; i++) {
     listItem  +=   `<li>
@@ -24,5 +39,5 @@ for (let i = 0; i < leadsArr.length; i++) {
 }
 
 ul.innerHTML = listItem;
-});
+}
 
