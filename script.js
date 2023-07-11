@@ -51,21 +51,10 @@ deleteBtn.addEventListener("click", function() {
     renderLeads();
 })
 
-
-tabBtn.addEventListener("click", function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-
-        console.log(tabs);
-  
-        // let activeTab = tabs[0]
-        // let activeTabId = activeTab.id 
+tabBtn.addEventListener("click", function(){    
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(leadsArr) )
+        renderLeads()
     })
-    
-//    leadsArr.push(tabs[0].url);
-    localStorage.setItem('Lead-Array', JSON.stringify(leadsArr));
-    renderLeads()
-   
-   
 })
-
-
