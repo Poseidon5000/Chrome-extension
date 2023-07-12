@@ -21,7 +21,7 @@ function renderLeads(){
 
 for (let i = 0; i < leadsArr.length; i++) {
     listItem  +=   `<li>
-    <a target='_blank' href='https://${leadsArr[i]}'>
+    <a target='_blank' href='${leadsArr[i]}'>
         ${leadsArr[i]}
     </a>
 </li>`
